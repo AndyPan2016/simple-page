@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/**
+ * 转盘抽奖
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2017-07-19 10:05:35
+ */
+
+
+.draw-wrap{
+	width: 630px;
+	height: 530px;
+	.region-prize-item{
+		float: left;
+		width: 164px;
+		height: 169px;
+		.background-center('draw-item-bg.png');
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+		margin-left: 7px;
+		margin-bottom: 7px;
+		line-height: 140px;
+
+		&.draw-switch-2, &.draw-switch-6, &.draw-btn{
+			margin-left: 60px;
+			margin-right: 60px;
+		}
+		&.active{
+			.background-center('draw-item-bg-active.png');
+		}
+		&.draw-btn{
+			.background('btn-draw.png');
+			position: relative;
+
+			.try-count{
+				position: absolute;
+				left: 0;
+				bottom: 15px;
+				display: inline-block;
+				width: 100%;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+				color: #FFF;
+				.count{
+					color: #F00;
+				}
+			}
+
+			&:hover, &.hover{
+				.background('btn-draw-hover.png');
+			}
+		}
+		.prize-img{
+			//margin-top: 10px;
+		}
+		.prize-item-name{
+			position: absolute;
+			left: 3px;
+			right: 3px;
+			bottom: 7px;
+			display: inline-block;
+			padding: 0 10px;
+			.text-overflow();
+			font-size: 14px;
+			text-align: center;
+			color: #FFF;
+			height: 32px;
+			line-height: 32px;
+			//background: rgba(24, 34, 67, .8);
+		}
+	}
+}

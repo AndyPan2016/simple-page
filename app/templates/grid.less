@@ -1,0 +1,18 @@
+//
+// Grid system
+// --------------------------------------------------
+@import "_variables";
+@import "_mixins";
+
+
+/*在大于768像素的屏幕里,这里的样式才生效-pc/pad*/
+@media (min-width:768px) {}
+
+/*在小于1199像素,这里的样式才生效-pad/wap*/
+@media (max-width:1199px) {}
+
+/*在768和991像素之间的屏幕里,这里的样式才生效-pad*/
+@media (min-width:768px) and (max-width:1199px) {}
+
+/*在小于768像素的屏幕里,这里的样式才生效-wap*/
+@media (max-width:767px) {}

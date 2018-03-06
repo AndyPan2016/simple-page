@@ -1,0 +1,50 @@
+@import "./_mixins.less";
+
+@space: 20px;
+//版本号
+@version: 'v1.0';
+//设计图的最大宽度
+@uiMaxWidth: 1920px;
+//页面内容宽度
+@uiContentWidth: 1200px;
+//背景相对路径
+@backgroundPath: '../images/';
+//@backgroundPath: 'http://cimg.178.com/[178]/OrcsMustDie_PC_17_04_20/images/';
+
+.background(@bg, @pos1: 0, @pos2: 0, @repeat: no-repeat){
+    background: url('@{backgroundPath}@{bg}?@{version}') @pos1 @pos2 @repeat;
+}
+.background-center(@bg){
+    .background(@bg, center, center);
+}
+.background-image(@bg){
+    background-image: url('@{backgroundPath}@{bg}?@{version}');
+}
+
+.page-wrap{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	max-width: @uiMaxWidth;
+	//min-width: @uiContentWidth;
+	position: relative;
+	.clearfix();
+
+	.fn-wrap{
+		width: @uiContentWidth;
+		height: 100%;
+		margin: 0 auto;
+		position: relative;
+		min-height: 120px;
+		.clearfix();
+	}
+
+	.page-region-wrap{
+		height: auto;
+		margin: 0 auto;
+		position: relative;
+		.clearfix();
+	}
+
+}

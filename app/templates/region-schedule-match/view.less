@@ -1,0 +1,146 @@
+@charset "UTF-8";
+/**
+ * 组件化 Less - 组件的独立样式文件
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2017-10-18 13:47:28
+ */
+
+
+.scale(@x: 1, @y: none) when not (@y = none) {
+    -webkit-transform: scale(@x, @y);
+       -moz-transform: scale(@x, @y);
+         -o-transform: scale(@x, @y);
+        -ms-transform: scale(@x, @y);
+            transform: scale(@x, @y);
+}
+
+.region-schedule-match{
+	.clearfix();
+	position: relative;
+
+}
+
+.schedule-switch-tab{
+	height: 90px;
+	width: 100%;
+	position: relative;
+
+	.swiper-container{
+		width: 1120px;
+	}
+
+	.swiper-button-white {
+		width: 35px;
+		height: 80px;
+		top: 0;
+		margin-top: 0;
+		background-size: 20px 30px;
+		background-color: #21262e;
+
+		&:hover, &.hover{
+			background-color: #143659;
+		}
+		&.swiper-button-prev{
+			left: 0;
+			.border-left-radius(5px);
+		}
+		&.swiper-button-next{
+			right: 0;
+			.border-right-radius(5px);
+		}
+	}
+
+	.schedule-tab-wrap{
+		height: 100%;
+	}
+
+	.switch-tab-item{
+		display: inline-block;
+		float: left;
+		width: 239px;
+		height: 90px;
+		color: #535e6e;
+		position: relative;
+		
+		.item-wrap{
+			display: inline-block;
+			width: 100%;
+			height: 80px;
+			background: #21262e;
+			position: relative;
+
+			&:after{
+				position: absolute;
+				bottom: -79px;
+				left: 50%;
+				margin-left: -7px;
+				width:0;
+			    height:0;
+			    border-width:10px 14px 0;
+			    border-style:solid;
+			    border-color:#143659 transparent transparent;/*灰 透明 透明 */
+			    position:relative;
+			}
+		}
+
+		&:hover, &.hover, &.active{
+			color: #FFF;
+			.item-wrap{
+				background: #143659;
+				.clearfix();
+			}
+		}
+
+		.tab-item-txt{
+			display: inline-block;
+			width: 100%;
+			text-align: center;
+			font-size: 20px;
+			cursor: pointer;
+			//margin-top: 5px;
+			.text-overflow();
+			position: absolute;
+			left: 0;
+			top: 34px;
+		}
+		.tab-item-date{
+			text-transform: uppercase;
+			display: inline-block;
+			width: 100%;
+			text-align: center;
+			font-size: 14px;
+			cursor: pointer;
+			//margin-top: 15px;
+			.text-overflow();
+			position: absolute;
+			left: 0;
+			top: 15px;
+		}
+		.tab-item-hd{
+			display: inline-block;
+			width: 100%;
+			text-align: center;
+			font-size: 24px;
+			cursor: pointer;
+			//margin-top: 17px;
+			.text-overflow();
+			position: absolute;
+			left: 0;
+			top: 17px;
+		}
+		.tab-item-remark{
+			display: inline-block;
+			width: 100%;
+			text-align: center;
+			font-size: 14px;
+			cursor: pointer;
+			//margin-top: 0px;
+			.text-overflow();
+			text-transform: uppercase;
+			.scale(1, 0.6);
+			position: absolute;
+			left: 0;
+			top: 45px;
+		}
+	}
+}

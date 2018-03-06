@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    
+    <meta name="keywords" content="网页关键词 必填"/>
+    <meta name="description" content="网页描述 必填" />
+    <meta itemprop="name" content="QQ分享标题 必填"/>
+    <meta itemprop="image" content="QQ分享图片链接 可选（不填则删除）"/>
+    <meta name="description" itemprop="description" content="QQ分享描述 必填"/>
+    <title>网页标题</title>
+    <script>
+        !function(e){[].map&&0===e.createElement("canvas").toDataURL("image/webp").indexOf("data:image/webp")&&(e.getElementsByTagName("html")[0].className="webp")}(document);
+        !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("将根据已有的meta标签来设置缩放比例");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=(a.navigator.appVersion.match(/android/gi),a.navigator.appVersion.match(/iphone/gi)),q=a.devicePixelRatio;i=p?q>=3&&(!i||i>=3)?3:q>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var r=e.createElement("div");r.appendChild(g),e.write(r.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+    </script>
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/plugin.css">-->
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+</head>
+
+<body>
+    <!--edit page wrap begin-->
+    <div class="pages page-wrap">
+        <div class="head">
+
+        </div>
+        <div class="container">
+
+        </div>
+    </div>
+    <!--edit page wrap end-->
+    <script type="text/javascript" src="assets/js/vendor.js"></script>
+    <!--<script type="text/javascript" src="assets/js/plugins.js"></script>-->
+    <script type="text/javascript" src="assets/js/components.js"></script>
+    <script type="text/javascript" src="assets/js/page/main.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>function initWx(e){if((e=e.result?e.result:e).sign){var n=e.sign;n.jsApiList=["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ"],wx.config(n)}}if(/MicroMessenger/i.test(window.navigator.userAgent)){var s=document.createElement("script"),loc=location.protocol+"//"+location.host+location.pathname+(location.search?location.search:"");s.src="http://huodong.178.com/Weixin/getSign?cb=initWx&url="+encodeURIComponent(loc),document.getElementsByTagName("head")[0].appendChild(s);var wx_helper=function(e){var n={title:"",desc:"",content:"",link:null,imgUrl:null,success:function(){$(".wx-layer").hide()},cancel:function(){$(".wx-layer").hide()}},t={},o=this;o.run=function(){return wx.onMenuShareTimeline(t),wx.onMenuShareAppMessage(t),wx.onMenuShareQQ(t),o},o.set=function(e,n){if(e&&t[e]){if("object"==typeof e)for(var i in e)t[i]=e[i];else"string"==typeof e&&(t[e]=n);return o}},function(){if(e)for(var o in n)e[o]&&(t[o]=e[o]);wx.ready(function(){wx_helper.run()}),wx.error(function(e){})}()};
+        (wx_helper=new wx_helper({title:'网站标题',desc:'网站描述',content:'可以填写网站描述',link:'网站链接',imgUrl:'需要显示的图片URL'})).run()}</script>
+</body>
+
+</html>

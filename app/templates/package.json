@@ -1,0 +1,44 @@
+{
+  "name": "pw-fe-project",
+  "version": "3.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "browser-sync": "^2.13.0",
+    "fontmin": "^0.9.6",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-babel": "^7.0.0",
+    "gulp-cheerio": "^0.6.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-less": "^3.0.5",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-px2rem-plugin": "^0.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-rev": "^8.0.0",
+    "gulp-rev-collector": "^1.0.3",
+    "gulp-sequence": "^0.4.6",
+    "gulp-removelogs": "^0.1.0",
+    "gulp-tinypng-plugin": "^1.0.5",
+    "gulp-uglify": "^3.0.0",
+    "gulp-webp": "^2.3.0",
+    "gulp-webpcss": "^1.1.1"
+  },
+  "scripts": {
+    "dev": "gulp dev",
+    "dev-less": "gulp dev-less",
+    "build": "gulp build"
+  },
+  "author": "",
+  "license": ""
+}

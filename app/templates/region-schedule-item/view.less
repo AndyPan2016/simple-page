@@ -1,0 +1,256 @@
+@charset "UTF-8";
+/**
+ * 描述
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2017-11-09 14:43:03
+ */
+
+
+
+.match-cont-item{
+	display: none;
+	&.active{display: block;}
+}
+
+.item-list-wrap{
+	width: 101%;
+	.clearfix();
+	margin-top: 20px;
+}
+
+.list-item-first{
+	width: 560px;
+	height: 233px;
+	background: #0c2947;
+	padding: 20px;
+	position: relative;
+	float: left;
+	.thumb{
+		width: 275px;
+		height: 195px;
+		float: left;
+	}
+	.thumb-min{
+		width: 230px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.thumb-mod{
+		display: inline-block;
+		padding: 0px 10px;
+		height: 30px;
+		line-height: 30px;
+		background: #525F71;
+		font-size: 18px;
+		color: #FFF;
+		position: absolute;
+		bottom : 0;
+		left: 0;
+		z-index: 1;
+		.clearfix();
+
+		&:after{
+			position: absolute;
+			width: 40px;
+			height: 100%;
+			top: 0;
+			right: -36px;
+			background-image:linear-gradient(60deg, #525F71 26px, transparent 20px);
+		}
+	}
+	.list-item-attr{
+		width: 230px;
+		height: 195px;
+		float: right;
+
+		&.max{
+			width: 280px;
+
+			.title{
+				height: 50px;
+				line-height: 50px;
+				font-size: 26px;
+				font-style: italic; 
+				.team-thumb{
+					width: 50px;
+					height: 50px;
+					background: none;
+				}
+			}
+		}
+		.title{
+			width: 100%;
+			height: 34px;
+			text-align: left;
+			font-size: 30px;
+			line-height: 34px;
+			font-weight: bold;
+			color: #FFF;
+			.text-overflow();
+			margin-bottom: 10px;
+		}
+		.item-row{
+			width: 100%;
+			height: 26px;
+
+			&.mt-10{margin-top: 10px;}
+		}
+		.cols{
+			display: inline-block;
+			width: 100%;
+			min-height: 26px;
+			line-height: 26px;
+			font-size: 12px;
+			color: #bbcef1;
+			text-align: left;
+			margin: 0;
+			.text-overflow();
+			float: left;
+			padding-right: 2px;
+
+			.cols-val{
+				color: #FFF;
+			}
+			.team-thumb{
+				width: 28px;
+				height: 28px;
+				border: 1px solid #bbcef1;
+				background: #2d3541;
+				margin: 0 3px;
+			}
+
+			&.cols-2{
+				width: 50%;
+			}
+		}
+	}
+
+	.item-mod{
+		display: inline-block;
+		padding: 0px 10px;
+		height: 36px;
+		line-height: 36px;
+		background: #21262e;
+		font-size: 16px;
+		color: #FFF;
+		font-weight: bold;
+		position: absolute;
+		top: 0;
+		right: 0;
+		.clearfix();
+
+		&:before{
+			position: absolute;
+			width: 40px;
+			height: 100%;
+			left: -36px;
+			top: 0;
+			background-image:linear-gradient(70deg, transparent 26px, #21262e 20px);
+		}
+	}
+
+	.show-more{
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		color: #74889e;
+		font-size: 12px;
+		text-decoration: none;
+		outline: none;
+	}
+}
+
+.list-item-min{
+	width: 170px;
+	height: 233px;
+	margin-left: 44px;
+	position: relative;
+	float: left;
+	.thumb-wrap{
+		width: 100%;
+		height: 186px;
+		position: relative;
+	}
+	.thumb{
+		width: 160px;
+		height: 100%;
+		margin: 0 5px;
+	}
+	.item-mod{
+		display: inline-block;
+		padding: 0px 10px;
+		height: 24px;
+		line-height: 24px;
+		background: #14365a;
+		font-size: 12px;
+		color: #FFF;
+		position: absolute;
+		top: 0;
+		left: 0;
+		.clearfix();
+
+		&:after{
+			position: absolute;
+			width: 40px;
+			height: 100%;
+			top: 0;
+			right: -36px;
+			background-image:linear-gradient(120deg, #14365a 26px, transparent 20px);
+		}
+	}
+	.player-name{
+		display: inline-block;
+		width: 138px;
+		height: 26px;
+		line-height: 26px;
+		text-align: center;
+		font-size: 12px;
+		color: #FFF;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		background: #21262e;
+		.text-overflow();
+	}
+	.icons{
+		width: 35px;
+		height: 35px;
+		background: #525f71;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
+	.info{
+		width: 100%;
+		height: 30px;
+		margin-top: 5px;
+		font-size: 12px;
+		position: relative;
+		.info-cols{
+			display: inline-block;
+			width: 72px;
+			height: 30px;
+			line-height: 30px;
+			color: #939db1;
+			.text-overflow();
+			label{color: #FFF;}
+			&.left{text-align: right;float: left;}
+			&.right{text-align: left;float: right;}
+		}
+		.vs{
+			position: absolute;
+			display: inline-block;
+			width: 20px;
+			height: 30px;
+			line-height: 30px;
+			color: #145395;
+			text-align: center;
+			left: 50%;
+			top: 0;
+			margin-left: -10px;
+			font-size: 14px;
+		}
+	}
+}

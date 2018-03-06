@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="telephone=no,email=no" name="format-detection">
+    <meta name="viewport" content="width=device-width"/>
+    
+    <meta name="keywords" content="网页关键词 必填" />
+    <meta name="description" content="网页描述 必填" />
+    <meta itemprop="name" content="QQ分享标题 必填" />
+    <meta itemprop="image" content="QQ分享图片链接 可选（不填则删除）" />
+    <meta name="description" itemprop="description" content="QQ分享描述 必填" />
+    <title>网页标题</title>
+    <script>!function(e){[].map&&0===e.createElement("canvas").toDataURL("image/webp").indexOf("data:image/webp")&&(e.getElementsByTagName("html")[0].className="webp")}(document)</script>
+    <!--<link rel="stylesheet" type="text/css" href="assets/css/plugin.css">-->
+    <link rel="stylesheet" type="text/css" href="assets/css/base.css">
+    <script type="text/javascript">
+        (function() {
+            var docElement = document.documentElement,
+                metaElement = document.querySelector('meta[name="viewport"]'),
+                styleElement = document.createElement("style"),
+                version,
+                screenScale = 1,
+                originScreenW = 750,
+                originScreenH = 1206,
+                screenW = window.screen.width,
+                screenH = window.screen.height;
+            screenScale = parseInt(screenW) / 750;
+            if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+                version = parseFloat(RegExp.$1);
+                if (version > 2.3) {
+                    metaElement.setAttribute("content", "width=750,minimum-scale=" + screenScale + ",maximum-scale=" + screenScale + ",target-densitydpi=device-dpi")
+                } else {
+                    metaElement.setAttribute("content", "width=750,target-densitydpi=device-dpi")
+                }
+            } else {
+                metaElement.setAttribute("content", "width=750,user-scalable=no,target-densitydpi=device-dpi")
+            }
+        })();
+    </script>
+</head>
+
+<body>
+    <!--edit page wrap begin-->
+    <div class="pages page-wrap">
+        <div class="head">
+
+        </div>
+        <div class="container">
+
+        </div>
+    </div>
+    <!--edit page wrap end-->
+    <script type="text/javascript" src="assets/js/vendor.js"></script>
+    <!--<script type="text/javascript" src="assets/js/plugins.js"></script>-->
+    <script type="text/javascript" src="assets/js/components.js"></script>
+    <script type="text/javascript" src="assets/js/page/main.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script>function initWx(e){if((e=e.result?e.result:e).sign){var n=e.sign;n.jsApiList=["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ"],wx.config(n)}}if(/MicroMessenger/i.test(window.navigator.userAgent)){var s=document.createElement("script"),loc=location.protocol+"//"+location.host+location.pathname+(location.search?location.search:"");s.src="http://huodong.178.com/Weixin/getSign?cb=initWx&url="+encodeURIComponent(loc),document.getElementsByTagName("head")[0].appendChild(s);var wx_helper=function(e){var n={title:"",desc:"",content:"",link:null,imgUrl:null,success:function(){$(".wx-layer").hide()},cancel:function(){$(".wx-layer").hide()}},t={},o=this;o.run=function(){return wx.onMenuShareTimeline(t),wx.onMenuShareAppMessage(t),wx.onMenuShareQQ(t),o},o.set=function(e,n){if(e&&t[e]){if("object"==typeof e)for(var i in e)t[i]=e[i];else"string"==typeof e&&(t[e]=n);return o}},function(){if(e)for(var o in n)e[o]&&(t[o]=e[o]);wx.ready(function(){wx_helper.run()}),wx.error(function(e){})}()};
+    (wx_helper=new wx_helper({title:'网站标题',desc:'网站描述',content:'可以填写网站描述',link:'网站链接',imgUrl:'需要显示的图片URL'})).run()}</script>
+</body>
+
+</html>

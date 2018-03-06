@@ -1,0 +1,91 @@
+@charset "UTF-8";
+/**
+ * 描述
+ * @authors AndyPan (pye-mail@163.com)
+ * @date    2017-11-09 14:02:50
+ */
+
+
+/* Vertical gradient, from top to bottom （垂直渐变，从上到下）*/
+.vertical(@start-color: #555, @end-color: #333, @start-percent: 0%, @end-percent: 100%) {
+    background-image: -webkit-gradient(linear, left @start-percent, left @end-percent, from(@start-color), to(@end-color)); /* Safari 4+, Chrome 2+*/
+    background-image: -webkit-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); /*Safari 5.1+, Chrome 10+*/ 
+    background-image:  -moz-linear-gradient(top, @start-color @start-percent, @end-color @end-percent); /*FF 3.6+*/
+    background-image: linear-gradient(to bottom, @start-color @start-percent, @end-color @end-percent); /*Standard, IE10*/ 
+    background-repeat: repeat-x;
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@start-color),argb(@end-color))); /*IE9 and down*/ 
+}
+
+.region-grid{
+	width: 100%;
+	border: none;
+	margin: 0;
+	text-align: center;
+
+	tr{
+		height: 54px;
+		&.split{
+			font-size: 0;
+			height: 10px;
+			background: no-repeat;
+			th{font-size: 0;}
+		}
+		td, th{
+			font-size: 18px;
+			color: #e1dfdf;
+			font-weight: normal;
+			&.team{width: 380px;}
+			&.urgent{width: 380px;}
+		}
+	}
+
+	thead{
+		tr{
+			.vertical(#2C3948, #21262E);
+		}
+	}
+
+	tbody{
+		tr{
+			background: #0b1b2c;
+			&:nth-child(2n+1){
+				background: #172e46;
+			}
+		}
+	}
+
+	.team-wrap{
+		display: inline-block;
+		outline: none;
+		text-decoration: none;
+		color: #e1dfdf;
+		height: 50px;
+		.thumb-area{
+			width: 27px;
+			height: 18px;
+			border: 0;
+			display: inline-block;
+			float: left;
+			margin-top: 18px;
+		}
+		.team-name{
+			color: #e1dfdf;
+			display: inline-block;
+			margin: 0 10px;
+			max-width: 200px;
+			.text-overflow();
+			cursor: pointer;
+			float: left;
+			margin-top: 16px;
+			font-size: 14px;
+		}
+		.thumb-team{
+			width: 32px;
+			height: 32px;
+			border: 0;
+			display: inline-block;
+			float: left;
+			margin-top: 12px;
+		}
+	}
+}

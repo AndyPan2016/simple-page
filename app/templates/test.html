@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="always" name="referrer">
+    <meta name="keywords" content="网页关键词 必填">
+    <meta name="description" content="网页描述 必填">
+    <meta itemprop="name" id="J-share-title" content="QQ分享标题 必填">
+    <meta name="description" id="J-share-desc" itemprop="description" content="QQ分享描述 必填">
+    <meta itemprop="image" id="J-share-thumb" content="QQ分享图片链接 可选（不填则删除）">
+    <title>【StarGame】Test</title>
+
+    <link rel="stylesheet" href="assets/css/base.css?v1.0" />
+    <script type="text/javascript" src="assets/js/vendor.js"></script>
+
+</head>
+
+<body>
+
+    <!--edit page wrap begin-->
+    <div class="page-wrap">
+
+        <div class="popup-mask" id="J-popup-mask"></div>
+        <div class="popup-main popup-main-submit" id="J-popup-main-submit">
+            <a href="javascript:;" class="popup-btn-close" title="关闭"></a>
+            <span class="popup-title">中奖啦</span>
+            <span class="popup-title-remark">你获得奖品是：100Q币</span>
+            <div class="popup-wrap">
+                <div class="popup-cont-publish">
+                    <span class="popup-inp-wrap">
+                        <!-- <label class="popup-inp-lab">昵称：</label> -->
+                        <input type="text" class="popup-inp J-validate" name="nickname" placeholder="请输入你的昵称" />
+                    </span>
+                    <span class="popup-inp-wrap">
+                        <!-- <label class="popup-inp-lab">QQ号：</label> -->
+                        <input type="text" class="popup-inp J-validate qq qq-len" name="qq" placeholder="请输入你的QQ" data-error-tip="QQ号码格式不正确" />
+                    </span>
+                    <span class="popup-inp-wrap">
+                        <!-- <label class="popup-inp-lab">邮箱：</label> -->
+                        <input type="text" class="popup-inp J-validate email" name="email" placeholder="请输入你的邮箱" data-error-tip="邮箱格式不正确" />
+                    </span>
+                    <span class="remark">
+                        <i>*</i> 请填写真实联系方式！
+                    </span>
+                </div>
+            </div>
+            <div class="popup-btm">
+                <a href="javascript:;" class="popup-btn popup-btn-sure">提交信息</a>
+            </div>
+        </div>
+        <!-- <a href="javascript:;" class="btn-test" id="j-btn-test">弹出框</a>
+        <div class="list-item-wrap" id="j-item-wrap"></div>
+        <div class="ui-pager" id="j-pager"></div> -->
+        
+        <br />
+
+        <!-- 日程图 -->
+        <div class="page-region-wrap">
+            <div class="fn-wrap">
+                <div class="ui-components region-schedule-match j-region-components">
+                    <div class="schedule-switch-tab j-swiper-schedule-tab" id="j-swiper-schedule-tab">
+                        <div class="swiper-container">
+                            <div class="schedule-tab-wrap swiper-wrapper">
+                                <a href="javascript:;" class="switch-tab-item swiper-slide active">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-date">01月23日 | BO111</label>
+                                        <label class="tab-item-txt">第一比赛日</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-date">01月23日 | BO111</label>
+                                        <label class="tab-item-txt">第一比赛日</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-date">01月23日 | BO111</label>
+                                        <label class="tab-item-txt">第一比赛日</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-date">01月23日 | BO111</label>
+                                        <label class="tab-item-txt">第一比赛日</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-date">01月23日 | BO111</label>
+                                        <label class="tab-item-txt">第一比赛日</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-date">01月23日 | BO111</label>
+                                        <label class="tab-item-txt">第一比赛日</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-date">01月23日 | BO111</label>
+                                        <label class="tab-item-txt">第一比赛日</label>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="javascript:;" class="swiper-button-white swiper-button-prev"></a>
+                        <a href="javascript:;" class="swiper-button-white swiper-button-next"></a>
+                    </div>
+                    <div class="schedule-match-cont">
+
+                        <div class="match-cont-item j-tab-cont-item active">
+                            <div class="item-list-wrap">
+                                <div class="list-item-first ui-components ui-block">
+                                    <span class="item-mod">本日最佳地图11111</span>
+                                    <img src="https://tuimeizi.cn/random?s=false&w=275&h=195" class="thumb" />
+                                    <div class="list-item-attr">
+                                        <h2 class="title">CHCHE</h2>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                选&nbsp;&nbsp;&nbsp;&nbsp;择：<label class="cols-val">3</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                删&nbsp;&nbsp;&nbsp;&nbsp;除：<label class="cols-val">3</label>
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                T胜率：<label class="cols-val">45.2</label>%
+                                            </span>
+                                            <span class="cols cols-2">
+                                                GT胜率：<label class="cols-val">34.5</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols">
+                                                首选胜率：<label class="cols-val">60.5</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row mt-10">
+                                            <span class="cols">
+                                                选择队伍：
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="show-more">+查看更多</a>
+                                </div>
+
+                                <div class="list-item-min ui-components ui-block">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min ui-components ui-block">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min ui-components ui-block">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-list-wrap">
+                                <div class="list-item-first ui-components ui-block">
+                                    <span class="item-mod">本日MVP</span>
+                                    <span class="thumb-mod">sdfswer</span>
+                                    <img src="https://tuimeizi.cn/random?s=false&w=230&h=233" class="thumb-min" />
+                                    <div class="list-item-attr max">
+                                        <h2 class="title">
+                                            战队归属：
+                                            <img src="https://tuimeizi.cn/random?s=false&w=50&h=50" class="team-thumb" />
+                                        </h2>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                击&nbsp;&nbsp;&nbsp;&nbsp;杀：<label class="cols-val">24</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                平均伤害：<label class="cols-val">124</label>
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="show-more">+查看更多</a>
+                                </div>
+
+                                <div class="list-item-min ui-components ui-block">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min ui-components ui-block">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min ui-components ui-block">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-cont-item j-tab-cont-item">
+                            <div class="item-list-wrap">
+                                <div class="list-item-first ui-components">
+                                    <span class="item-mod">本日最佳地图22222</span>
+                                    <img src="https://tuimeizi.cn/random?s=false&w=275&h=195" class="thumb" />
+                                    <div class="list-item-attr">
+                                        <h2 class="title">CHCHE</h2>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                选&nbsp;&nbsp;&nbsp;&nbsp;择：<label class="cols-val">3</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                删&nbsp;&nbsp;&nbsp;&nbsp;除：<label class="cols-val">3</label>
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                T胜率：<label class="cols-val">45.2</label>%
+                                            </span>
+                                            <span class="cols cols-2">
+                                                GT胜率：<label class="cols-val">34.5</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols">
+                                                首选胜率：<label class="cols-val">60.5</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row mt-10">
+                                            <span class="cols">
+                                                选择队伍：
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="show-more">+查看更多</a>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-list-wrap">
+                                <div class="list-item-first ui-components">
+                                    <span class="item-mod">本日MVP</span>
+                                    <span class="thumb-mod">sdfswer</span>
+                                    <img src="https://tuimeizi.cn/random?s=false&w=230&h=233" class="thumb-min" />
+                                    <div class="list-item-attr max">
+                                        <h2 class="title">
+                                            战队归属：
+                                            <img src="https://tuimeizi.cn/random?s=false&w=50&h=50" class="team-thumb" />
+                                        </h2>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                击&nbsp;&nbsp;&nbsp;&nbsp;杀：<label class="cols-val">24</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                平均伤害：<label class="cols-val">124</label>
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="show-more">+查看更多</a>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-cont-item j-tab-cont-item">
+                            <div class="item-list-wrap">
+                                <div class="list-item-first ui-components">
+                                    <span class="item-mod">本日最佳地图3333</span>
+                                    <img src="https://tuimeizi.cn/random?s=false&w=275&h=195" class="thumb" />
+                                    <div class="list-item-attr">
+                                        <h2 class="title">CHCHE</h2>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                选&nbsp;&nbsp;&nbsp;&nbsp;择：<label class="cols-val">3</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                删&nbsp;&nbsp;&nbsp;&nbsp;除：<label class="cols-val">3</label>
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                T胜率：<label class="cols-val">45.2</label>%
+                                            </span>
+                                            <span class="cols cols-2">
+                                                GT胜率：<label class="cols-val">34.5</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols">
+                                                首选胜率：<label class="cols-val">60.5</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row mt-10">
+                                            <span class="cols">
+                                                选择队伍：
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                                <img src="https://tuimeizi.cn/random?s=false&w=28&h=28" class="team-thumb" />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="show-more">+查看更多</a>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-list-wrap">
+                                <div class="list-item-first ui-components">
+                                    <span class="item-mod">本日MVP</span>
+                                    <span class="thumb-mod">sdfswer</span>
+                                    <img src="https://tuimeizi.cn/random?s=false&w=230&h=233" class="thumb-min" />
+                                    <div class="list-item-attr max">
+                                        <h2 class="title">
+                                            战队归属：
+                                            <img src="https://tuimeizi.cn/random?s=false&w=50&h=50" class="team-thumb" />
+                                        </h2>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                击&nbsp;&nbsp;&nbsp;&nbsp;杀：<label class="cols-val">24</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                平均伤害：<label class="cols-val">124</label>
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                        <div class="item-row">
+                                            <span class="cols cols-2">
+                                                助&nbsp;&nbsp;&nbsp;&nbsp;攻：<label class="cols-val">5</label>
+                                            </span>
+                                            <span class="cols cols-2">
+                                                爆头率：<label class="cols-val">35</label>%
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <a href="javascript:;" class="show-more">+查看更多</a>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+
+                                <div class="list-item-min">
+                                    <div class="thumb-wrap">
+                                        <span class="item-mod">最高 Rating  1.8</span>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=160&h=186" class="thumb" />
+                                        <label class="player-name">选手名字</label>
+                                        <img src="https://tuimeizi.cn/random?s=false&w=35&h=35" class="icons" />
+                                    </div>
+                                    <div class="info">
+                                        <span class="info-cols left">XXXXXX <label>14</label></span>
+                                        <label class="vs">vs</label>
+                                        <span class="info-cols right"><label>16</label> XXXXXX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 日程图 -->
+        
+        <br /><br /><br />
+
+        <!-- 赛程图 -->
+        <div class="page-region-wrap md-schedule">
+            <div class="fn-wrap">
+                <div class="ui-components region-schedule-match j-region-components">
+                    <div class="schedule-switch-tab j-swiper-schedule-tab" id="j-swiper-schedule-tab">
+                        <div class="swiper-container">
+                            <div class="schedule-tab-wrap swiper-wrapper">
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-hd">第一轮</label>
+                                        <label class="tab-item-remark">schedule</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-hd">第二轮</label>
+                                        <label class="tab-item-remark">schedule</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-hd">第三轮</label>
+                                        <label class="tab-item-remark">schedule</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-hd">第一轮</label>
+                                        <label class="tab-item-remark">schedule</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-hd">第一轮</label>
+                                        <label class="tab-item-remark">schedule</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-hd">第一轮</label>
+                                        <label class="tab-item-remark">schedule</label>
+                                    </span>
+                                </a>
+                                <a href="javascript:;" class="switch-tab-item swiper-slide">
+                                    <span class="item-wrap">
+                                        <label class="tab-item-hd">第一轮</label>
+                                        <label class="tab-item-remark">schedule</label>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <a href="javascript:;" class="swiper-button-white swiper-button-prev"></a>
+                        <a href="javascript:;" class="swiper-button-white swiper-button-next"></a>
+                    </div>
+                    <div class="schedule-match-cont cont">
+
+                        <div class="match-cont-item j-tab-cont-item active">
+                            <table class="ui-components region-grid">
+                                <thead>
+                                    <tr>
+                                        <th>排名</th>
+                                        <th class="team">战队</th>
+                                        <th>战绩</th>
+                                        <th>积分</th>
+                                        <th class="urgent">紧急情况</th>
+                                    </tr>
+                                    <tr class="split"><th colspan="5">&nbsp;</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="match-cont-item j-tab-cont-item">
+                            <table class="ui-components region-grid">
+                                <thead>
+                                    <tr>
+                                        <th>排名</th>
+                                        <th class="team">战队</th>
+                                        <th>战绩</th>
+                                        <th>积分</th>
+                                        <th class="urgent">紧急情况</th>
+                                    </tr>
+                                    <tr class="split"><th colspan="5">&nbsp;</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="match-cont-item j-tab-cont-item">
+                            <table class="ui-components region-grid">
+                                <thead>
+                                    <tr>
+                                        <th>排名</th>
+                                        <th class="team">战队</th>
+                                        <th>战绩</th>
+                                        <th>积分</th>
+                                        <th class="urgent">紧急情况</th>
+                                    </tr>
+                                    <tr class="split"><th colspan="5">&nbsp;</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>
+                                            <a href="javascript:;" target="_blank" class="team-wrap">
+                                                <img src="https://tuimeizi.cn/random?s=false&w=27&h=18" class="thumb-area" />
+                                                <label class="team-name">战队名称</label>
+                                                <img src="https://tuimeizi.cn/random?s=false&w=32&h=32" class="thumb-team" />
+                                            </a>
+                                        </td>
+                                        <td>4-1</td>
+                                        <td>12</td>
+                                        <td>加塞获胜晋级四强</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 赛程图 -->
+        <br/><br/><br/>
+
+        <!-- 转盘抽奖 -->
+        <div class="page-region-wrap md-schedule">
+            <div class="fn-wrap">
+                <div class="draw-wrap" id="J-region-prize">
+                    <div class="region-prize-item draw-switch-1">
+                        <img src="assets/images/draw-item-1.png" class="prize-img" />
+                        <span class="prize-item-name">雷蛇键鼠套装</span>
+                    </div>
+                    <div class="region-prize-item draw-switch-2">
+                        <img src="assets/images/draw-item-2.png" class="prize-img" />
+                        <span class="prize-item-name">再接再厉</span>
+                    </div>
+                    <div class="region-prize-item draw-switch-3">
+                        <img src="assets/images/draw-item-3.png" class="prize-img" />
+                        <span class="prize-item-name">小米移动电源</span>
+                    </div>
+                    <div class="region-prize-item draw-switch-8">
+                        <img src="assets/images/draw-item-4.png" class="prize-img" />
+                        <span class="prize-item-name">10元Q币</span>
+                    </div>
+                    <a href="javascript:;" class="region-prize-item draw-btn" id="J-draw-btn" title="立即抽奖">
+                        <span class="try-count">剩余抽奖次数：<label class="counts j-async-wrap" id="J-try-count">0</label></span>
+                    </a>
+                    <div class="region-prize-item draw-switch-4">
+                        <img src="assets/images/draw-item-2.png" class="prize-img" />
+                        <span class="prize-item-name">再接再厉</span>
+                    </div>
+                    <div class="region-prize-item draw-switch-7">
+                        <img src="assets/images/draw-item-2.png" class="prize-img" />
+                        <span class="prize-item-name">再接再厉</span>
+                    </div>
+                    <div class="region-prize-item draw-switch-6">
+                        <img src="assets/images/draw-item-5.png" class="prize-img" />
+                        <span class="prize-item-name">50元京东卡</span>
+                    </div>
+                    <div class="region-prize-item draw-switch-5">
+                        <img src="assets/images/draw-item-1.png" class="prize-img" />
+                        <span class="prize-item-name">雷蛇键鼠套装</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--edit page wrap end-->
+
+    
+    <script type="text/javascript" src="assets/js/plugins.js"></script>
+    <script type="text/javascript" src="assets/js/components.js"></script>
+    <script type="text/javascript" src="assets/js/page/test.js?v1.0"></script>
+
+    <!-- <script src="http://www.stargame.com/js/FileEdit.js" type="text/javascript"></script> --> 
+    <script src="js/page/FileEdit.js" type="text/javascript"></script>
+
+    <!-- <script src="http://w.cnzz.com/c.php?id=30039253"></script> 
+    <script src="http://w.cnzz.com/c.php?id=30066996"></script> -->
+</body>
+</html>
