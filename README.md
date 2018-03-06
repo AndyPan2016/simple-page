@@ -17,7 +17,7 @@ SimplePage 脚手架。
 
 ### 拷贝项目模板
 ```
-$ git clone http://zhujiang@10.238.253.8:10100/r/Generator-SimplePage.git
+$ git clone https://github.com/AndyPan2016/simple-page.git
 ```
 
 ### 安装依赖模块
