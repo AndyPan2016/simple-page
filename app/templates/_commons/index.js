@@ -8,12 +8,13 @@
 
 window.module = {
 	version: '2.0.0',
+	isGlobal: true,
 	objs: {}
 };
 
 //定义模块（模块名不允许重复）
 window.define = module.define = function(name, handle){
-	module.objs[name] = function(){
+	var myHandle = function(){
 		var result;
 		if(handle){
 			var exportsObjs = { 
@@ -28,6 +29,7 @@ window.define = module.define = function(name, handle){
 		}
 		return result;
 	};
+	module.isGlobal ? window[name] = myHandle : module.objs[name] = myHandle;
 };
 
 //获取模块
@@ -41,7 +43,7 @@ window.require = module.require = module.get = function(){
 		args = arguments[1] || [];
 		var i = 0, len = name.length;
 		for(;i<len;i++){
-			moduleItem = module.objs[name[i]];
+			moduleItem = module.isGlobal ? window[name[i]] : module.objs[name[i]];
 			if(!moduleItem){
 				console.error('Can not find module "'+name[i]+'"!');
 				break;
@@ -50,7 +52,7 @@ window.require = module.require = module.get = function(){
 		}
 	}
 	else{
-		moduleItem = module.objs[name];
+		moduleItem = module.isGlobal ? window[name] : module.objs[name];
 		if(!moduleItem){
 			console.error('Can not find module "'+name+'"!');
 			return;
@@ -60,7 +62,7 @@ window.require = module.require = module.get = function(){
 			if(key > 0)
 				args.push(arguments[key]);
 		}
-		result = module.objs[name].apply(module, args);
+		result = (module.isGlobal ? window[name] : module.objs[name]).apply(module, args);
 	}
 
 	return result;
