@@ -47,11 +47,13 @@ prt.askAuthor = function(){
         name: 'install',
         message: '初始化完成是否进行依赖安装(不安装/yarn/cnpm方式)？（n/y/c）',
         default: project.install
-    },{
+    },
+    /*{
         name: 'swiper',
         message: '使用什么版本的Swiper？（3/4）',
-        default: project.slides
-    }];
+        default: project.swiper
+    }*/
+    ];
 
     let prompts_m = [{
         name: 'company',
