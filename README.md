@@ -157,7 +157,6 @@ $ gulp help
 - 其他修改
 
 #### v2.3.4
-- 合并TGBUS通导通底
 - 增加loading及poll组件
 
 #### v2.3.2
