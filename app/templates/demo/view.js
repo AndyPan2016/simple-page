@@ -6,7 +6,7 @@
 
 'use strict';
 
-module.define('view-demo', function(){
+module.define('ViewCompDemo', function(){
 
 	//组件视图输出
     module.exports = {

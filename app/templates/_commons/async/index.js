@@ -48,9 +48,10 @@ module.define('async', function(){
             renderTCF(customCatch, response, responseText);
             renderTCF(customFinally, response, responseText);
 		};
-		$.ajax(options);
+		var ajaxObj = $.ajax(options);
 
 		return {
+			ajaxObj: ajaxObj,
 			then: function(fun){
 				if(fun)
 	                customThen.push(fun);

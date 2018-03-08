@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/**
+ * 选项卡 LESS
+ * @authors 潘毅 (pye-mail@163.com)
+ * @date    18-03-07 18:10:03
+ */
+
+.ui-tabs{
+	min-width: 300px;
+	min-height: 300px;
+	position: relative;
+	.clearfix();
+
+	@hdH: 50px;
+	.ui-tabs-hd{
+		height: @hdH;
+		overflow: hidden;
+
+		.tabs-hd-item{
+			display: inline-block;
+			float: left;
+			height: 100%;
+			line-height: @hdH;
+			min-width: 100px;
+			padding: 0 10px;
+			text-align: center;
+			text-decoration: none;
+			outline: none;
+			font-size: 14px;
+			.transition(all .2s ease);
+
+			&.active{font-weight: bold;}
+			&.disabled{color: #ddd;cursor: text;}
+			&:hover, &.hover{};
+		}
+	}
+
+	.ui-tabs-bd{
+		position: absolute;
+		top: @hdH;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		overflow: hidden;
+		overflow-y: auto;
+
+		&.tab-hd-auto{
+			/*自动高度 且最大高度为500px*/
+			bottom: initial;
+			max-height: 500px;
+		}
+
+		.tabs-bd-item{
+			width: 100%;
+			height: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			.transition(all .2s ease);
+			.opacity(0);
+
+			&.iframe{
+				bottom: 6px;
+				iframe{
+					border: 0;
+					width: 100%;
+					height: 100%;
+					overflow: auto;
+				}
+			}
+
+			&.active{
+				z-index: 1;
+				.opacity(1);
+			}
+		}
+	}
+}

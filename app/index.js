@@ -115,6 +115,15 @@ prt.copyFile = function () {
     this.mkdir('src/js/components/_commons/delegates');
     this.copy('_commons/delegates/index.js', 'src/js/components/_commons/delegates/index.js');
 
+    this.mkdir('src/js/components/_commons/loadmanager');
+    this.copy('_commons/loadmanager/index.js', 'src/js/components/_commons/loadmanager/index.js');
+    this.copy('_commons/loadmanager/view.js', 'src/js/components/_commons/loadmanager/view.js');
+
+    this.mkdir('src/js/components/_commons/tab');
+    this.copy('_commons/tab/index.js', 'src/js/components/_commons/tab/index.js');
+    this.copy('_commons/tab/view.js', 'src/js/components/_commons/tab/view.js');
+    this.copy('_commons/tab/view.less', 'src/js/components/_commons/tab/view.less');
+
     //组件案例
     this.mkdir('src/js/components/demo');
     //复制DEMO代码到项目
