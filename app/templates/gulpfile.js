@@ -9,6 +9,8 @@ const revCollector  = require('gulp-rev-collector');
 //const autoprefixer = require('gulp-autoprefixer');
 //less编译
 const less = require('gulp-less');
+//sass编译
+const sass = require('gulp-sass');
 //压缩JS文件
 const uglify = require('gulp-uglify');
 //合并JS文件
@@ -61,29 +63,12 @@ const path = {
     fonts : 'src/fonts',
     source: 'src/source/',
     build : "build",
-    less  : 'src/less'
+    less  : 'src/less',
+    sass  : 'src/sass'
 };
 
-
-//全平台通导通底
-const _currency = {
-    '178': {
-        nav: 'http://www.178.com/s/js/nav.js',
-        footer: 'http://www.178.com/s/js/footer.js'
-    },
-
-    'tgbus': {
-        style: 'http://ol.tgbus.com/css/201705/css/header.css',
-        footer: 'http://www.tgbus.com/assets/tgbus/v1/js/tgbus_hf.js'
-    },
-
-    'ptbus': {
-        nav: 'http://static.ptbus.com/newhome/head/ptbus_header.js?style=white&width=1200',
-        footer: 'http://www.ptbus.com/static/common/footer.js'
-    }
-};
 //可视化编辑
-const fileEdit = '\n<script src="http://www.stargame.com/js/FileEdit.js?v2.4.2" type="text/javascript"></script>\n';
+//const fileEdit = '\n<script src="http://www.stargame.com/js/FileEdit.js?v2.4.2" type="text/javascript"></script>\n';
 
 
 //文字提取，单独调用
@@ -109,28 +94,38 @@ function getFonts(text) {
             console.error("字体提取失败，错误信息：" + err);
         } else {
             let css = fs.readFileSync(path.fonts + "/fonts.css","utf-8");
-    css = css.replace(/url\(("||')/g, 'url("../fonts/');
+            css = css.replace(/url\(("||')/g, 'url("../fonts/');
 
-    fs.writeFile(path.src + '/less/fonts.less', css, {flag: 'w'}, function (err) {
-        if(err) {
-            console.error(err);
-        } else {
-            //删除CSS源文件
-            gulp.src([path.fonts + '/*.css'], {read: false})
-                .pipe(clean());
+            fs.writeFile(path.less + '/fonts.less', css, {flag: 'w'}, function (err) {
+                if(err) {
+                    console.error(err);
+                } else {
+                    //删除CSS源文件
+                    gulp.src([path.fonts + '/less.*.css'], {read: false})
+                        .pipe(clean());
+                }
+            });
+
+            fs.writeFile(path.sass + '/fonts.scss', css, {flag: 'w'}, function (err) {
+                if(err) {
+                    console.error(err);
+                } else {
+                    //删除CSS源文件
+                    gulp.src([path.fonts + '/sass.*.css'], {read: false})
+                        .pipe(clean());
+                }
+            });
+
+            //复制Font位置
+            gulp.src(['src/fonts/**.ttf',
+                'src/fonts/**.eot',
+                'src/fonts/**.svg',
+                'src/fonts/**.woff'])
+                .pipe(gulp.dest('src/assets/fonts'));
+
+            console.log('- 字体提取成功!，字体放在文件放在' + path.fonts + '下，样式放在src/less目录下。');
         }
     });
-
-    //复制Font位置
-    gulp.src(['src/fonts/**.ttf',
-        'src/fonts/**.eot',
-        'src/fonts/**.svg',
-        'src/fonts/**.woff'])
-        .pipe(gulp.dest('src/assets/fonts'));
-
-    console.log('- 字体提取成功!，字体放在文件放在' + path.fonts + '下，样式放在src/less目录下。');
-}
-});
 }
 
 if (text && text.length > 0) {
@@ -145,83 +140,17 @@ gulp.task('addInfo', () => {
     return gulp.src(['dist/*.html'])
         .pipe(cheerio({
             run: ($) => {
-            let date = new Date();
-let time = date.getFullYear() + '年'
-    + parseInt(date.getMonth() + 1) + '月'
-    + date.getDate() + '日';
-let dev = argv.dev || "**";  //页面制作
-let des = argv.des || "**";  //页面设计
-
-//数据暂存
-let platform = null;
-
-//页面结构
-let $head = $('head');
-let $body = $('body');
-
-//需要添加到页面的结构
-let $style = $('<link rel="stylesheet" type="text/css">');
-let $nav = $('<script></script>');
-let $footer = $('<script></script>');
-let $info = '\n<!-- 设计：' + des + ' 制作：' + dev + ' 时间：' + time + '-->\n';
-
-if (argv['178']) {
-    platform = _currency['178'];
-} else if (argv['tgbus']) {
-    platform = _currency['tgbus'];
-} else if (argv['ptbus']) {
-    platform = _currency['ptbus'];
-}
-
-if (platform) {
-    if (platform.style) {
-        $style.attr("href", platform.style);
-        $head.append('\n' + $style + '\n');
+                let date = new Date();
+                let time = date.getFullYear() + '年'
+                            + parseInt(date.getMonth() + 1) + '月'
+                            + date.getDate() + '日';},
+            parserOptions: {
+                decodeEntities: false
+            }
+        }))
+        .pipe(gulp.dest('dist/'));
     }
-    $nav.attr('src', platform.nav);
-    $footer.attr('src', platform.footer);
-
-    $body.prepend('\n' + $nav + '\n');
-    $body.append('\n' + $footer + '\n');
-}
-
-if (argv['v']) {
-    let $link = $("link"),
-        $script = $("script"),
-        _src = null,
-        $item = null;
-
-    time = '?t=' + date.getTime();
-
-    $link.each(function (index, item) {
-        $item = $(item);
-        _src = $item.attr("href");
-        if (!_src || /^http/i.test(_src)) return true;
-        _src = _src.replace(/(\?.*)/, '') + time;
-        $item.attr("href", _src);
-    });
-
-    $script.each(function (index, item) {
-        $item = $(item);
-        _src = $item.attr("src");
-        if (!_src || /^http/i.test(_src)) return true;
-        _src = _src.replace(/(\?.*)/, '') + time;
-        $item.attr("src", _src);
-    })
-}
-
-//添加信息戳
-$head.append($info);
-
-//添加可视化编辑代码
-$body.append(fileEdit);
-},
-parserOptions: {
-    decodeEntities: false
-}
-}))
-.pipe(gulp.dest('dist/'));
-});
+);
 
 //图片压缩
 gulp.task('imgMin', () => {
@@ -242,79 +171,70 @@ gulp.task('clean', () => {
 //JS合并
 gulp.task('jsconcat',() => {
     return gulp.src(['src/js/plugins/*.js'])
-    //合并后的文件名
+        //合并后的文件名
         .pipe(concat('plugins.js'))
         .pipe(gulp.dest('output/'));
 });
 
 gulp.task('jsconcat-plugin',() => {
     return gulp.src([
-        'src/js/vendor/jquery-2.2.4.js',
-        'src/js/vendor/swiper-3.3.1.jquery.min.js',
-        'src/js/vendor/rely-*.js',
-        'src/js/vendor/plug-*.js',
-        'src/js/vendor/*.js'
-    ])
-    //合并后的文件名
+            'src/js/vendor/jquery-2.2.4.js',
+            'src/js/vendor/swiper-3.3.1.jquery.min.js',
+            'src/js/vendor/rely-*.js',
+            'src/js/vendor/plug-*.js',
+            'src/js/vendor/*.js'
+        ])
+        //合并后的文件名
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('output/'));
 });
 
 gulp.task('jsconcat-dev',() => {
-    return gulp.src([
-        'src/js/plugins/*.js',
-        'src/js/core/*.js'
-    ])
-    //合并后的文件名
+        return gulp.src([
+            'src/js/plugins/*.js',
+            'src/js/core/*.js'
+        ])
+        //合并后的文件名
         .pipe(concat('plugins.js'))
         .pipe(gulp.dest('src/assets/js'));
 });
 
 gulp.task('jsconcat-plugin-dev',() => {
     return gulp.src([
-        'src/js/vendor/jquery-2.2.4.js',
-        'src/js/vendor/swiper-3.3.1.jquery.min.js',
-        'src/js/vendor/rely-*.js',
-        'src/js/vendor/plug-*.js',
-        'src/js/vendor/*.js'
-    ])
-    //合并后的文件名
+            'src/js/vendor/jquery-2.2.4.js',
+            'src/js/vendor/swiper-3.3.1.jquery.min.js',
+            'src/js/vendor/rely-*.js',
+            'src/js/vendor/plug-*.js',
+            'src/js/vendor/*.js'
+        ])
+        //合并后的文件名
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('src/assets/js'));
 });
 
 //module模块组件js合并
 gulp.task('jsconcat-components',() => {
-    let data = '';
-let list = fs.readdirSync(path.src);
+    
 
-list.forEach(function (item) {
-    if(/.+\.html/i.test(item)) {
-        data += fs.readFileSync(path.src + item).toString().match(/<script.+<\/script>/ig).join();
-    }
-});
-
-if(/assets\/js\/components.js/i.test(data.toString())) {
     return gulp.src([
-        'src/js/components/_commons/index.js',
-        'src/js/components/_commons/delegates/*.js',
-        'src/js/components/_commons/**/*.js',
-        'src/js/components/**/*.js'
-    ])
-    //合并后的文件名
+            'src/js/components/_commons/index.js',
+            'src/js/components/_commons/delegates/*.js',
+            'src/js/components/_commons/**/*.js',
+            'src/js/components/**/*.js'
+        ])
+        //合并后的文件名
         .pipe(concat('components.js'))
         .pipe(gulp.dest('output/'));
-}
 });
 
 gulp.task('jsconcat-components-dev', () => {
     return gulp.src([
-        'src/js/components/_commons/index.js',
-        'src/js/components/_commons/delegates/*.js',
-        'src/js/components/_commons/**/*.js',
-        'src/js/components/**/*.js'
-    ])
-    //合并后的文件名
+            'src/js/components/_commons/index.js',
+            'src/js/components/_commons/delegates/*.js',
+            'src/js/components/_commons/**/*.js',
+            'src/js/components/**/*.js'
+        ])
+        //合并后的文件名
         .pipe(concat('components.js'))
         .pipe(gulp.dest('src/assets/js'));
 });
@@ -346,84 +266,90 @@ gulp.task('cssmin', () => {
 gulp.task('cssconcat',() => {
     let val = gulp.src(['src/css/*.css', 'src/css/**/*.css'])
         .pipe(concat('base.css'));
-if (argv['rem']) {
-    val.pipe(px2rem({
-        'width_design': argv['rem'] === true ? 750 : argv['rem'],
-        'valid_num': 2,
-        'pieces': 10,
-        'ignore_px': [1, 2],
-        'ignore_selector': ['@media']
-    }))
-}
-return val.pipe(gulp.dest('output/'));
+    if (argv['rem']) {
+        val.pipe(px2rem({
+            'width_design': argv['rem'] === true ? 750 : argv['rem'],
+            'valid_num': 2,
+            'pieces': 10,
+            'ignore_px': [1, 2],
+            'ignore_selector': ['@media']
+        }))
+    }
+    return val.pipe(gulp.dest('output/'));
 });
 
 //组件LESS合并
 gulp.task('less-components-concat',() => {
-    return gulp.src(['src/less/page.less', 'src/js/components/_common/**/*.less', 'src/js/components/*.less', 'src/js/components/**/*.less'])
-        .pipe(concat('_page.less'))//合并后的文件名
+    return gulp.src(['src/less/page.less', 'src/js/components/_commons/**/*.less', 'src/js/components/*.less', 'src/js/components/**/*.less'])
+        .pipe(concat('_page.less.less'))//合并后的文件名
         .pipe(gulp.dest('src/less/'));
+});
+//组件SASS合并
+gulp.task('sass-components-concat',() => {
+    return gulp.src(['src/sass/page.scss', 'src/js/components/_commons/**/*.scss', 'src/js/components/*.scss', 'src/js/components/**/*.scss'])
+        .pipe(concat('page.sass.scss'))//合并后的文件名
+        .pipe(gulp.dest('src/sass/'));
 });
 
 gulp.task('cssconcat-plugin',() => {
     let val = gulp.src('src/css/plugins/*.css')
         .pipe(concat('plugin.css'));
-if (argv['rem']) {
-    val.pipe(px2rem({
-        'width_design': argv['rem'] === true ? 750 : argv['rem'],
-        'valid_num': 2,
-        'pieces': 10,
-        'ignore_px': [1, 2],
-        'ignore_selector': ['@media']
-    }))
-}
-return val.pipe(gulp.dest('output/'));
+    if (argv['rem']) {
+        val.pipe(px2rem({
+            'width_design': argv['rem'] === true ? 750 : argv['rem'],
+            'valid_num': 2,
+            'pieces': 10,
+            'ignore_px': [1, 2],
+            'ignore_selector': ['@media']
+        }))
+    }
+    return val.pipe(gulp.dest('output/'));
 });
 
 gulp.task('cssconcat-dev',() => {
     let val = gulp.src(['src/css/*.css', 'src/css/**/*.css'])
         .pipe(concat('base.css'));
-if (argv['rem']) {
-    val.pipe(px2rem({
-        'width_design': argv['rem'] === true ? 750 : argv['rem'],
-        'valid_num': 2,
-        'pieces': 10,
-        'ignore_px': [1, 2],
-        'ignore_selector': ['@media']
-    }))
-}
-return val.pipe(gulp.dest('src/assets/css'));
+    if (argv['rem']) {
+        val.pipe(px2rem({
+            'width_design': argv['rem'] === true ? 750 : argv['rem'],
+            'valid_num': 2,
+            'pieces': 10,
+            'ignore_px': [1, 2],
+            'ignore_selector': ['@media']
+        }))
+    }
+    return val.pipe(gulp.dest('src/assets/css'));
 });
 
 gulp.task('cssconcat-dev-plugin',() => {
     let val = gulp.src('src/css/plugins/*.css')
         .pipe(concat('plugin.css'));
-if (argv['rem']) {
-    val.pipe(px2rem({
-        'width_design': argv['rem'] === true ? 750 : argv['rem'],
-        'valid_num': 4,
-        'pieces': 10,
-        'ignore_px': [1, 2],
-        'ignore_selector': ['@media']
-    }))
-}
-return val.pipe(gulp.dest('src/assets/css'));
+    if (argv['rem']) {
+        val.pipe(px2rem({
+            'width_design': argv['rem'] === true ? 750 : argv['rem'],
+            'valid_num': 4,
+            'pieces': 10,
+            'ignore_px': [1, 2],
+            'ignore_selector': ['@media']
+        }))
+    }
+    return val.pipe(gulp.dest('src/assets/css'));
 });
 
 //CSS添加版本号
 gulp.task('cssRev', () => {
     if (argv['v']) {
-    return gulp.src(['output/*.css', 'output/*.js'])
-        .pipe(gulp.dest('output/'))
-        .pipe(gulp.dest('output/assets'));
-} else {
-    return gulp.src(['output/*.css', 'output/*.js'])
-        .pipe(gulp.dest('output/'))
-        .pipe(rev())
-        .pipe(gulp.dest('output/assets'))
-        .pipe(rev.manifest())
-        .pipe(gulp.dest('output/rev'));
-}
+        return gulp.src(['output/*.css', 'output/*.js'])
+            .pipe(gulp.dest('output/'))
+            .pipe(gulp.dest('output/assets'));
+    } else {
+        return gulp.src(['output/*.css', 'output/*.js'])
+            .pipe(gulp.dest('output/'))
+            .pipe(rev())
+            .pipe(gulp.dest('output/assets'))
+            .pipe(rev.manifest())
+            .pipe(gulp.dest('output/rev'));
+    }
 });
 
 //移动JS
@@ -468,25 +394,25 @@ gulp.task('rev', () => {
 });
 
 gulp.task('less', () => {
-    return gulp.src(['src/less/_page.less', 'src/less/_commons/*.less', 'src/less/_modules/*.less'])
-    //错误提示
+    return gulp.src(['src/less/_page.less.less', 'src/less/_commons/*.less', 'src/less/_modules/*.less'])
+        //错误提示
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(less())
         .pipe(gulp.dest('src/css'));
 });
-gulp.task('lesses', () => {
-    return gulp.src(['src/less/nav.less', 'src/less/footer.less', 'src/less/friendlylink.less'])
-    //错误提示
+gulp.task('sass', () => {
+    return gulp.src(['src/sass/page.sass.scss', 'src/sass/_commons/*.scss', 'src/sass/_modules/*.scss'])
+        //错误提示
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-        .pipe(less())
+        .pipe(sass())
         .pipe(gulp.dest('src/css'));
 });
 
 
 gulp.task('dist', () => {
     return gulp.src([
-        'src/images/**/*.*'
-    ])
+            'src/images/**/*.*'
+        ])
         .pipe(gulp.dest('dist/assets/images'));
 });
 
@@ -547,51 +473,53 @@ gulp.task('distres', () => {
 
 gulp.task('connectDev', () => {
     browserSync.init({
-    server: "src",   //服务器根目录
-    port: 8000
-});
-gulp.watch(['src/images/**/*.*',
-    'src/js/**/*.*',
-    'src/js/components/_commons/**/*.*',
-    'src/js/components/**/*.*',
-    'src/less/**/*.*',
-    'src/resources/**/*.*',
-    'src/*.html'
-],['dev-re', reload]);
+        server: "src",   //服务器根目录
+        port: 8000
+    });
+    gulp.watch(['src/images/**/*.*',
+        'src/js/**/*.*',
+        'src/js/components/_commons/**/*.*',
+        'src/js/components/**/*.*',
+        'src/less/**/*.*',
+        'src/sass/**/*.*',
+        'src/resources/**/*.*',
+        'src/*.html'
+    ],['dev-re', reload]);
 });
 
 gulp.task('connectDev-less', () => {
     browserSync.init({
-    server: "src",   //服务器根目录
-    port: 8000
-});
-gulp.watch(['src/images/**/*.*',
-    'src/js/**/*.*',
-    'src/js/components/_commons/**/*.*',
-    'src/js/components/**/*.*',
-    'src/less/**/*.*',
-    'src/resources/**/*.*',
-    'src/*.html'
-],['dev-re-less', reload]);
+        server: "src",   //服务器根目录
+        port: 8000
+    });
+    gulp.watch(['src/images/**/*.*',
+        'src/js/**/*.*',
+        'src/js/components/_commons/**/*.*',
+        'src/js/components/**/*.*',
+        'src/less/**/*.*',
+        'src/sass/**/*.*',
+        'src/resources/**/*.*',
+        'src/*.html'
+    ],['dev-re-less', reload]);
 });
 
 //输出生产环境文件
-gulp.task('build', gulpSequence('clean', 'jsconcat', 'jsconcat-plugin', 'jsmin', 'cssconcat', 'cssconcat-plugin', 'cssmin', 'cssRev', 'movejs', 'movecss', ['dist', 'distWebp', 'distres', 'rev'], 'htmlmin', 'replace', 'replace-sec', 'move-page-js', 'movefonts' ,'addInfo'));
+gulp.task('build', gulpSequence('clean', 'jsconcat', 'jsconcat-plugin', 'jsconcat-components', 'jsmin', 'cssconcat', 'cssconcat-plugin', 'cssmin', 'cssRev', 'movejs', 'movecss', ['dist', 'distWebp', 'distres', 'rev'], 'htmlmin', 'replace', 'replace-sec', 'move-page-js', 'movefonts' ,'addInfo'));
 
 //使用图片压缩
 gulp.task('build-min', gulpSequence('clean', ['jsconcat', 'jsconcat-plugin', 'cssconcat', 'cssconcat-plugin', 'imgMin', 'distWebp'] , ['jsmin', 'cssmin', 'htmlmin'], 'cssRev', ['movejs', 'movecss',  'move-page-js', 'movefonts'], ['distres', 'rev'],  'replace', 'replace-sec' ,'addInfo'));
 
 
 gulp.task('dev-re',function(callback){
-    gulpSequence('less-components-concat', 'less', 'lesses','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','cssconcat-dev-plugin','dist-dev','dist-js-dev')(callback);
+    gulpSequence('less-components-concat', 'less', 'sass-components-concat', 'sass','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','cssconcat-dev-plugin','dist-dev','dist-js-dev')(callback);
 });
 
 gulp.task('dev-re-less',function(callback){
-    gulpSequence('less-components-concat', 'less', 'lesses','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','dist-dev')(callback);
+    gulpSequence('less-components-concat', 'less', 'sass-components-concat', 'sass','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','dist-dev')(callback);
 });
 
 gulp.task('default', ['build']);
 
 //开发环境
-gulp.task('dev', gulpSequence('connectDev','jsconcat-dev','jsconcat-plugin-dev', 'jsconcat-components-dev', 'less-components-concat','cssconcat-dev','dist-dev'));
-gulp.task('dev-less', gulpSequence('connectDev-less','less','jsconcat-dev','jsconcat-plugin-dev', 'jsconcat-components-dev', 'less-components-concat','cssconcat-dev','dist-dev'));
+gulp.task('dev', gulpSequence('connectDev','jsconcat-dev','jsconcat-plugin-dev', 'jsconcat-components-dev', 'less-components-concat', 'sass-components-concat','cssconcat-dev','dist-dev'));
+gulp.task('dev-less', gulpSequence('connectDev-less','less','jsconcat-dev','jsconcat-plugin-dev', 'jsconcat-components-dev', 'less-components-concat', 'sass-components-concat','cssconcat-dev','dist-dev'));

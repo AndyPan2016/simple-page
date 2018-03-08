@@ -82,6 +82,7 @@ prt.copyFile = function () {
     //this.mkdir('src/source');
     this.mkdir('src/css/plugins');
     this.mkdir('src/less');
+    this.mkdir('src/sass');
     this.mkdir('src/less/_commons');
     this.mkdir('src/images');
     //this.mkdir('src/resources');
@@ -97,6 +98,7 @@ prt.copyFile = function () {
     this.copy('animate.less', 'src/less/_commons/animate.less');
     this.copy('common.less', 'src/less/_commons/common.less');
     this.copy('page.less', 'src/less/page.less');
+    this.copy('page.scss', 'src/less/page.scss');
     this.copy('gulpfile.js', 'gulpfile.js');
     if(this.swiper === '3') {
         this.copy('swiper.js', 'src/js/vendor/plug-swiper.js');
