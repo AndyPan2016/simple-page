@@ -19,6 +19,7 @@
 
 ```
 [Project Name]
+	├── dist/                          # 最终打包并压缩后的资源文件夹
 	├── node_modules/                  # node依赖文件
 	├── output/                        # 生产环境最终打包并压缩后的资源文件夹
 	├── src/                           # 源码目录
@@ -27,6 +28,8 @@
 	│	│	├── plugin.**.css          # 插件样式
 	│	│   ├── page.**.css            # 页面样式
 	│	│   └── **.css                 # 其他样式
+	│	├── html/                      # html资源
+	│	│   └── **.html                # html文件
 	│	├── images/                    # 图片资源
 	│	│   ├── sprit.png              # 雪碧图
 	│	│   └── **.**                  # 其他图
@@ -56,6 +59,17 @@
 	│	│   ├── _mixins.less           # less公共函数引用文件
 	│	│   ├── page.less              # 页面样式
 	│	│   └── **.less                # 其他样式
+	│	├── sass/                      # sass资源
+	│	│   ├── _commons/              # sass公共样式资源文件夹
+	│	│   │   ├── _variables.scss    # sass公共变量
+	│	│   │   ├── animate.scss       # sass公共动画
+	│	│   │   ├── common.scss        # sass公共样式
+	│	│   │   └── reset.scss         # sass公共重置样式
+	│	│   ├── _mixins/               # sass公共函数资源文件夹
+	│	│   │   └── **.scss            # sass公共函数资源文件
+	│	│   ├── _mixins.scss           # sass公共函数引用文件
+	│	│   ├── page.scss              # 页面样式
+	│	│   └── **.scss                # 其他样式
 	│	└── index.html                 # 页面入口
 	├──	.gitignore                     # 忽略提交文件
 	├── gulpfile.js                    # gulp任务配置 
