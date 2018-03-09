@@ -41,9 +41,9 @@ define('CompTabs', function(options){
             //          refresh: 是否每次切换都刷新内容(只有设置iframe和async时有效)
             //      }
             //注意：content、iframe、ajax三者只能存在一个，即是三种不同的选项卡内容的展示方式
-            { title: '选项A', content: '文本内容A', iframe: 'http://www.baidu.com/', async: '' },
+            /*{ title: '选项A', content: '文本内容A', iframe: 'http://www.baidu.com/', async: '' },
             { title: '选项B', content: '文本内容B', iframe: '', async: 'html/test.html', active: true },
-            { title: '选项C', content: '文本内容C', iframe: '', async: '', disabled: true }
+            { title: '选项C', content: '文本内容C', iframe: '', async: '', disabled: true }*/
         ]
     }, fn = {};
     //默认参数与自定义参数合并后的参数对象

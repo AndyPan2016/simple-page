@@ -110,7 +110,21 @@ prt.copyFile = function () {
 
 
     this.mkdir('src/html');
-    this.copy('html/test.html', 'src/html/test.html');
+
+    this.mkdir('src/test');
+    this.mkdir('src/test/demo/async');
+    this.mkdir('src/test/demo/images');
+    this.mkdir('src/test/demo/less');
+    this.mkdir('src/test/demo/sass');
+    this.copy('test/demo/js/test.js', 'src/test/demo/js/test.js');
+    this.copy('test/demo/index.html', 'src/test/demo/index.html');
+
+    this.mkdir('src/test/tabs/images');
+    this.mkdir('src/test/tabs/sass');
+    this.copy('test/tabs/async/test.html', 'src/test/tabs/async/test.html');
+    this.copy('test/tabs/js/test.js', 'src/test/tabs/js/test.js');
+    this.copy('test/tabs/less/test.less', 'src/test/tabs/less/test.less');
+    this.copy('test/tabs/index.html', 'src/test/tabs/index.html');
 
     this.mkdir('src/js/components/_commons');
     this.copy('_commons/index.js', 'src/js/components/_commons/index.js');

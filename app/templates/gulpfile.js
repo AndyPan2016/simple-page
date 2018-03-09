@@ -280,15 +280,49 @@ gulp.task('cssconcat',() => {
 
 //组件LESS合并
 gulp.task('less-components-concat',() => {
-    return gulp.src(['src/less/page.less', 'src/js/components/_commons/**/*.less', 'src/js/components/*.less', 'src/js/components/**/*.less'])
+    return gulp.src([
+            'src/less/page.less', 
+            'src/js/components/_commons/**/*.less', 
+            'src/js/components/*.less', 
+            'src/js/components/**/*.less'
+        ])
         .pipe(concat('_page.less.less'))//合并后的文件名
         .pipe(gulp.dest('src/less/'));
 });
 //组件SASS合并
 gulp.task('sass-components-concat',() => {
-    return gulp.src(['src/sass/page.scss', 'src/js/components/_commons/**/*.scss', 'src/js/components/*.scss', 'src/js/components/**/*.scss'])
+    return gulp.src([
+            'src/sass/page.scss', 
+            'src/js/components/_commons/**/*.scss', 
+            'src/js/components/*.scss', 
+            'src/js/components/**/*.scss'
+        ])
         .pipe(concat('page.sass.scss'))//合并后的文件名
         .pipe(gulp.dest('src/sass/'));
+});
+//组件测试less合并
+gulp.task('less-test-concat',() => {
+    return gulp.src([
+            'src/test/**/less/*.less', 
+        ])
+        //合并后的文件名
+        //.pipe(concat('test.css'))
+        //less编译
+        .pipe(less())
+        //合并后的目录
+        .pipe(gulp.dest('src/test'));
+});
+//组件测试sass合并
+gulp.task('sass-test-concat',() => {
+    return gulp.src([
+            'src/test/**/sass/*.scss', 
+        ])
+        //合并后的文件名
+        //.pipe(concat('test.css'))
+        //sass编译
+        .pipe(sass())
+        //合并后的目录
+        .pipe(gulp.dest('src/test'));
 });
 
 gulp.task('cssconcat-plugin',() => {
@@ -482,6 +516,7 @@ gulp.task('connectDev', () => {
         'src/js/components/**/*.*',
         'src/less/**/*.*',
         'src/sass/**/*.*',
+        'src/test/**/*.*',
         'src/resources/**/*.*',
         'src/*.html'
     ],['dev-re', reload]);
@@ -498,6 +533,7 @@ gulp.task('connectDev-less', () => {
         'src/js/components/**/*.*',
         'src/less/**/*.*',
         'src/sass/**/*.*',
+        'src/test/**/*.*',
         'src/resources/**/*.*',
         'src/*.html'
     ],['dev-re-less', reload]);
@@ -511,15 +547,15 @@ gulp.task('build-min', gulpSequence('clean', ['jsconcat', 'jsconcat-plugin', 'cs
 
 
 gulp.task('dev-re',function(callback){
-    gulpSequence('less-components-concat', 'less', 'sass-components-concat', 'sass','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','cssconcat-dev-plugin','dist-dev','dist-js-dev')(callback);
+    gulpSequence('less-components-concat', 'less-test-concat', 'less', 'sass-components-concat', 'sass-test-concat', 'sass','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','cssconcat-dev-plugin','dist-dev','dist-js-dev')(callback);
 });
 
 gulp.task('dev-re-less',function(callback){
-    gulpSequence('less-components-concat', 'less', 'sass-components-concat', 'sass','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','dist-dev')(callback);
+    gulpSequence('less-components-concat', 'less-test-concat', 'less', 'sass-components-concat', 'sass-test-concat', 'sass','jsconcat-dev', 'jsconcat-components-dev','jsconcat-plugin','cssconcat-dev','dist-dev')(callback);
 });
 
 gulp.task('default', ['build']);
 
 //开发环境
-gulp.task('dev', gulpSequence('connectDev','jsconcat-dev','jsconcat-plugin-dev', 'jsconcat-components-dev', 'less-components-concat', 'sass-components-concat','cssconcat-dev','dist-dev'));
+gulp.task('dev', gulpSequence('connectDev','jsconcat-dev','jsconcat-plugin-dev', 'jsconcat-components-dev', 'less-components-concat', 'less-test-concat', 'sass-components-concat', 'sass-test-concat','cssconcat-dev','dist-dev'));
 gulp.task('dev-less', gulpSequence('connectDev-less','less','jsconcat-dev','jsconcat-plugin-dev', 'jsconcat-components-dev', 'less-components-concat', 'sass-components-concat','cssconcat-dev','dist-dev'));
