@@ -42,7 +42,7 @@ define('CompTabs', function(options){
             //      }
             //注意：content、iframe、ajax三者只能存在一个，即是三种不同的选项卡内容的展示方式
             { title: '选项A', content: '文本内容A', iframe: 'http://www.baidu.com/', async: '' },
-            { title: '选项B', content: '文本内容B', iframe: '', async: 'http://localhost:8000/test.html', active: true },
+            { title: '选项B', content: '文本内容B', iframe: '', async: 'html/test.html', active: true },
             { title: '选项C', content: '文本内容C', iframe: '', async: '', disabled: true }
         ]
     }, fn = {};

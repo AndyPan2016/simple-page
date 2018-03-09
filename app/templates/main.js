@@ -11,4 +11,10 @@ $(function() {
 
 	console.info('Welcome!');
 
+	var tabs = CompTabs();
+
+	tabs.on('switch', function(target, thisItem, idx){
+		console.info(idx);
+	});
+
 });

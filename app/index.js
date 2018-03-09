@@ -108,6 +108,10 @@ prt.copyFile = function () {
     this.copy('main.js', 'src/js/page/main.js');
     this.copy('package.json', 'package.json');
 
+
+    this.mkdir('src/html');
+    this.copy('html/test.html', 'src/html/test.html');
+
     this.mkdir('src/js/components/_commons');
     this.copy('_commons/index.js', 'src/js/components/_commons/index.js');
 
