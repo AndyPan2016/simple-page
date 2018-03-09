@@ -70,6 +70,14 @@
 	│	│   ├── _mixins.scss           # sass公共函数引用文件
 	│	│   ├── page.scss              # 页面样式
 	│	│   └── **.scss                # 其他样式
+	│	├── test/                      # 组件测试目录
+	│	│   ├── demo/                  # 组件测试demo
+	│	│   │   ├── async              # 组件所需异步请求文件夹
+	│	│   │   ├── images             # 组件所需图片资源文件夹
+	│	│   │   ├── js                 # 组件测试js文件夹
+	│	│   │   ├── less               # 组件测试所需less样式文件夹
+	│	│   │   └── sass               # 组件测试所需sass样式文件夹
+	│	│   └── index.html             # 组件测试html页面
 	│	└── index.html                 # 页面入口
 	├──	.gitignore                     # 忽略提交文件
 	├── gulpfile.js                    # gulp任务配置 
